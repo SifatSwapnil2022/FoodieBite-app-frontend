@@ -18,6 +18,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    "types": ["node", "express", "multer"],
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
