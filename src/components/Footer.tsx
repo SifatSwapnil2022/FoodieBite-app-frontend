@@ -1,6 +1,10 @@
-const Footer = () => {
+type FooterProps = {
+  className?: string; // Add className as an optional prop
+};
+
+const Footer = ({ className }: FooterProps) => {
   return (
-    <div className="bg-orange-500 py-10">
+    <div className={`bg-orange-500 py-10 ${className}`}>
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
         <span className="text-3xl text-white font-extrabold tracking-tight">
           FoodieBite.com
@@ -17,4 +21,5 @@ const Footer = () => {
     </div>
   );
 };
+
 export default Footer;

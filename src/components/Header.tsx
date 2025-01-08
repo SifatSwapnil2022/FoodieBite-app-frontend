@@ -2,9 +2,13 @@ import { Link } from "react-router-dom";
 import MobileNav from "./MobileNav";
 import MainNav from "./MainNav";
 
-const Header = () => {
+type HeaderProps = {
+  className?: string; // Add className as an optional prop
+};
+
+const Header = ({ className }: HeaderProps) => {
   return (
-    <div className="border-b-2 border-b-orange-500 py-6">
+    <div className={`border-b-2 border-b-orange-500 py-6 ${className}`}>
       <div className="container mx-auto flex justify-between items-center">
         <Link
           to="/"
@@ -22,4 +26,5 @@ const Header = () => {
     </div>
   );
 };
+
 export default Header;

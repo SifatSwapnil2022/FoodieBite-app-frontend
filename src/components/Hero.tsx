@@ -1,9 +1,13 @@
 import hero from "@/assets/hero.png";
 
-const Hero = () => {
+type HeroProps = {
+  className?: string; // Add className as an optional prop
+};
+
+const Hero = ({ className }: HeroProps) => {
   return (
-    <div>
-      <img src={hero} className="w-full max-h-[600px] object-cover" />
+    <div className={className}>
+      <img src={hero} className="w-full max-h-[750px] object-cover" />
     </div>
   );
 };
