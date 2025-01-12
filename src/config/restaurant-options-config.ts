@@ -1,4 +1,10 @@
 export const cuisineList = [
+  "Kacchi",
+  "Biriyani",
+  "Tehari",
+  "Polao",
+  "Khichuri",
+  "Fried Rice",
   "American",
   "BBQ",
   "Breakfast",
