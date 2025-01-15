@@ -44,7 +44,7 @@ const HomePage = () => {
       }`}
     >
       {/* Dark Mode Toggle */}
-      <div className="fixed top-4 right-4">
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2">
         <button
           onClick={toggleDarkMode}
           className="bg-orange-500 text-white px-6 py-3 rounded-full shadow-lg hover:scale-110 transition-all ease-in-out duration-300"
