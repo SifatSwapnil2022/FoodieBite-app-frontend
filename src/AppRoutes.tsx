@@ -8,6 +8,10 @@ import ManageRestaurantPage from "./pages/ManageRestaurantPage";
 import SearchPage from "./pages/SearchPage";
 import DetailPage from "./pages/DetailPage";
 import OrderStatusPage from "./pages/OrderStatusPage";
+import HelpLine from "./pages/help-line";
+import PrivacyPolicy from "./pages/privacy-policy";
+import FAQ from "./pages/FAQ";
+import AboutUs from "./pages/AboutUs";
 
 const AppRoutes = () => {
   return (
@@ -37,6 +41,38 @@ const AppRoutes = () => {
           </Layout>
         }
       />
+      <Route
+        path="/faq"
+        element={
+          <Layout>
+            <FAQ />
+          </Layout>
+        }
+      />
+      <Route
+        path="/about-us"
+        element={
+          <Layout>
+            <AboutUs />
+          </Layout>
+        }
+      />
+      <Route
+        path="/privacy-policy"
+        element={
+          <Layout>
+            <PrivacyPolicy />
+          </Layout>
+        }
+      />
+      <Route
+        path="/help-line"
+        element={
+          <Layout>
+            <HelpLine />
+          </Layout>
+        }
+      />
       <Route element={<ProtectedRoute />}>
         <Route
           path="/order-status"
@@ -63,7 +99,6 @@ const AppRoutes = () => {
           }
         />
       </Route>
-
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

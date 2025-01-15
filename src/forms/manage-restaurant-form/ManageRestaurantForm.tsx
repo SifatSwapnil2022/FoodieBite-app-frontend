@@ -11,11 +11,12 @@ import LoadingButton from "@/components/LoadingButton";
 import { Button } from "@/components/ui/button";
 import { Restaurant } from "@/types";
 import { useEffect } from "react";
+import { CountryDropdown } from "react-country-region-selector"; // Import country selector
 
 const formSchema = z
   .object({
     restaurantName: z.string({
-      required_error: "restuarant name is required",
+      required_error: "restaurant name is required",
     }),
     city: z.string({
       required_error: "city is required",
@@ -126,7 +127,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 bg-gray-50 p-10 rounded-lg"
+        className="space-y-8 bg-white p-8 rounded-lg shadow-lg border border-gray-200"
       >
         <DetailsSection />
         <Separator />
@@ -135,7 +136,30 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
         <MenuSection />
         <Separator />
         <ImageSection />
-        {isLoading ? <LoadingButton /> : <Button type="submit">Submit</Button>}
+
+        {/* Country Dropdown section */}
+        <div className="flex flex-col gap-4">
+          <label htmlFor="country" className="text-gray-700 font-semibold">
+            Country
+          </label>
+          <CountryDropdown
+            id="country"
+            value={form.getValues("country")} // Getting value from the form
+            onChange={(val) => form.setValue("country", val)} // Setting value in the form
+            className="bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 p-2"
+          />
+        </div>
+
+        {isLoading ? (
+          <LoadingButton />
+        ) : (
+          <Button
+            type="submit"
+            className="bg-blue-500 text-white hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-semibold rounded-md px-4 py-2 transition"
+          >
+            Submit
+          </Button>
+        )}
       </form>
     </Form>
   );

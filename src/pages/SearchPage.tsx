@@ -1,5 +1,6 @@
 import { useSearchRestaurants } from "@/api/RestaurantApi";
 import CuisineFilter from "@/components/CuisineFilter";
+import Loader from "@/components/Loader";
 import PaginationSelector from "@/components/PaginationSelector";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultCard from "@/components/SearchResultCard";
@@ -68,7 +69,11 @@ const SearchPage = () => {
   };
 
   if (isLoading) {
-    <span>Loading ...</span>;
+    return (
+      <div className="flex justify-center items-center">
+        <Loader /> {/* Assuming Loader is a component you have or can create */}
+      </div>
+    );
   }
 
   if (!results?.data || !city) {
