@@ -4,6 +4,134 @@ import appDownloadImage from "../assets/appDownload.png";
 import socialMediaImage from "../assets/socialMedia.png";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import { useNavigate } from "react-router-dom";
+import clsx from "clsx";
+import burgerology50 from "../assets/burgerology50.jpg";
+import buy1get1 from "../assets/buy1get1.jpg";
+import free from "../assets/free.jpg";
+import kebab from "../assets/kebab.jpg";
+import pizza from "../assets/pizza.jpg";
+import sandwitch from "../assets/sandwitch.jpg";
+import user1 from "../assets/user1.png";
+import user2 from "../assets/user2.png";
+import user3 from "../assets/user3.png";
+import dp from "../assets/dp.png";
+import sd from "../assets/sd.jpg";
+import to from "../assets/to.jpg";
+import user4 from "../assets/user4.png";
+import user5 from "../assets/user5.png";
+import user6 from "../assets/user6.png";
+
+// Sample data for offers and advertisements
+const offers = [
+  {
+    id: 1,
+    title: "50% Off on All Orders",
+    description: "Get 50% off your next order. Use code: FOODIE50",
+    image: burgerology50,
+  },
+  {
+    id: 2,
+    title: "Buy 1 Get 1 Free",
+    description: "Enjoy a free meal with every order. Limited time only!",
+    image: buy1get1,
+  },
+  {
+    id: 3,
+    title: "Free Delivery for First-Time Users",
+    description: "New to FoodieBite? Get free delivery on your first order.",
+    image: free,
+  },
+];
+
+// Sample Data for Featured Menu Items
+const featuredMenuItems = [
+  {
+    id: 1,
+    name: "Spicy Kebab Roll",
+    description: "Fresh kebab rolls with a spicy kick.",
+    image: kebab, // Place in public/assets folder
+  },
+  {
+    id: 2,
+    name: "Cheesy Veggie Pizza",
+    description: "A cheesy, veggie-packed pizza perfect for every taste.",
+    image: pizza,
+  },
+  {
+    id: 3,
+    name: "Grilled Chicken Sandwich",
+    description: "Juicy grilled chicken in a soft, toasted bun.",
+    image: sandwitch,
+  },
+];
+
+// Sample Data for Best Reviewers
+const reviewers = [
+  {
+    id: 1,
+    name: "Arun Joyti Mondol",
+    reviewCount: 20,
+    avatar: user1, // Place in public/assets folder
+  },
+  {
+    id: 2,
+    name: "Md Sakib Khan",
+    reviewCount: 5,
+    avatar: user2,
+  },
+  {
+    id: 3,
+    name: "Nuzath Tabassum",
+    reviewCount: 8,
+    avatar: user3,
+  },
+];
+
+// Sample Data for Top-Rated Restaurants
+const topRestaurants = [
+  {
+    id: 1,
+    name: "Dominos Pizza",
+    rating: 4.9,
+    image: dp, // Place in public/assets folder
+  },
+  {
+    id: 2,
+    name: "Sultan's Dine",
+    rating: 4.8,
+    image: sd,
+  },
+  {
+    id: 3,
+    name: "Takeout ",
+    rating: 4.7,
+    image: to,
+  },
+];
+// Sample Data for Customer Testimonials
+const testimonials = [
+  {
+    id: 1,
+    name: "Urmi Chowdhury",
+    review:
+      "Poor delivery service. Food arrived late and was not fresh at all 😡!",
+    avatar: user4, // Place in public/assets folder
+  },
+  {
+    id: 2,
+    name: "Bijoy Dipto Pal",
+    review:
+      "I love the quick delivery and variety of food options.😍 Highly recommend!",
+    avatar: user5,
+  },
+  {
+    id: 3,
+    name: "Niloy Rahman",
+    review:
+      "FoodieBite makes ordering dinner a breeze. The app is fantastic😊!",
+    avatar: user6,
+  },
+];
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -39,9 +167,10 @@ const HomePage = () => {
 
   return (
     <div
-      className={`flex flex-col gap-16 min-h-screen py-12 ${
+      className={clsx(
+        "flex flex-col gap-16 min-h-screen py-12",
         isDarkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"
-      }`}
+      )}
     >
       {/* Dark Mode Toggle */}
       <div className="fixed top-4 left-1/2 transform -translate-x-1/2">
@@ -55,21 +184,24 @@ const HomePage = () => {
 
       {/* Hero Section */}
       <div
-        className={`md:px-32 bg-white rounded-xl shadow-lg py-10 px-8 flex flex-col gap-6 text-center mx-6 ${
-          isDarkMode ? "bg-gray-800 text-white" : ""
-        }`}
+        className={clsx(
+          "md:px-32 bg-white rounded-xl shadow-lg py-10 px-8 flex flex-col gap-6 text-center mx-6",
+          isDarkMode && "bg-gray-800 text-white"
+        )}
       >
         <h1
-          className={`text-6xl font-bold tracking-tight ${
+          className={clsx(
+            "text-6xl font-bold tracking-tight drop-shadow-sm",
             isDarkMode ? "text-orange-500" : "text-orange-500"
-          } drop-shadow-sm`}
+          )}
         >
           Every Bite Matters with FoodieBite
         </h1>
         <p
-          className={`text-lg text-gray-700 leading-relaxed ${
+          className={clsx(
+            "text-lg text-gray-700 leading-relaxed",
             isDarkMode ? "text-white" : "text-gray-700"
-          }`}
+          )}
         >
           Your favorite meals delivered fresh and fast! Explore a world of
           flavors with just a click.
@@ -78,6 +210,130 @@ const HomePage = () => {
           placeHolder="Search by City or Town"
           onSubmit={handleSearchSubmit}
         />
+      </div>
+
+      {/* Restaurant Offers Section */}
+      <div className="bg-white rounded-xl shadow-lg py-8 px-10 mx-8">
+        <h3 className="text-3xl font-bold text-orange-500 mb-6">
+          Restaurant Offers
+        </h3>
+        <div className="grid md:grid-cols-3 gap-8">
+          {offers.map((offer) => (
+            <div
+              key={offer.id}
+              className="bg-gray-100 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+            >
+              <img
+                src={offer.image}
+                alt={offer.title}
+                className="w-full h-56 object-cover rounded-lg mb-4"
+              />
+              <h4 className="text-xl font-bold text-gray-800">{offer.title}</h4>
+              <p className="text-gray-600 mt-2">{offer.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Featured Menu Items Section */}
+      <div className="bg-white rounded-xl shadow-lg py-8 px-10 mx-8">
+        <h3 className="text-3xl font-bold text-orange-500 mb-6">
+          Featured Menu New Exclusive Items
+        </h3>
+        <div className="grid md:grid-cols-3 gap-8">
+          {featuredMenuItems.map((item) => (
+            <div
+              key={item.id}
+              className="bg-gray-100 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+            >
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-full h-56 object-cover rounded-lg mb-4"
+              />
+              <h4 className="text-xl font-bold text-gray-800">{item.name}</h4>
+              <p className="text-gray-600 mt-2">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Best Reviewers Section */}
+      <div className="bg-white rounded-xl shadow-lg py-8 px-10 mx-8">
+        <h3 className="text-3xl font-bold text-orange-500 mb-6">
+          Best Reviewers
+        </h3>
+        <div className="flex flex-wrap justify-center gap-6">
+          {reviewers.map((reviewer) => (
+            <div
+              key={reviewer.id}
+              className="bg-gray-100 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+            >
+              <img
+                src={reviewer.avatar}
+                alt={reviewer.name}
+                className="w-16 h-16 rounded-full mx-auto mb-4"
+              />
+              <h4 className="text-xl font-bold text-gray-800">
+                {reviewer.name}
+              </h4>
+              <p className="text-gray-600 mt-2">
+                {reviewer.reviewCount} reviews
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Customer Testimonials Section */}
+      <div className="bg-white rounded-xl shadow-lg py-8 px-10 mx-8">
+        <h3 className="text-3xl font-bold text-orange-500 mb-6">
+          What Our Customers Are Saying
+        </h3>
+        <div className="flex flex-wrap justify-center gap-6">
+          {testimonials.map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="bg-gray-100 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+            >
+              <img
+                src={testimonial.avatar}
+                alt={testimonial.name}
+                className="w-16 h-16 rounded-full mx-auto mb-4"
+              />
+              <h4 className="text-xl font-bold text-gray-800">
+                {testimonial.name}
+              </h4>
+              <p className="text-gray-600 mt-2">{testimonial.review}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Top-Rated Restaurants Section */}
+      <div className="bg-gray-100 rounded-xl shadow-lg py-8 px-10 mx-8">
+        <h3 className="text-3xl font-bold text-orange-500 mb-6">
+          Top-Rated Restaurants
+        </h3>
+        <div className="flex flex-wrap justify-center gap-6">
+          {topRestaurants.map((restaurant) => (
+            <div
+              key={restaurant.id}
+              className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+            >
+              <img
+                src={restaurant.image}
+                alt={restaurant.name}
+                className="w-full h-32 object-cover rounded-lg mb-4"
+              />
+              <h4 className="text-xl font-bold text-gray-800">
+                {restaurant.name}
+              </h4>
+              <p className="text-gray-600 mt-2">
+                Rating: {restaurant.rating} ⭐
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Info Section */}
@@ -89,16 +345,18 @@ const HomePage = () => {
         />
         <div className="flex flex-col items-center justify-center gap-8 text-center">
           <h2
-            className={`font-bold text-4xl tracking-tight ${
+            className={clsx(
+              "font-bold text-4xl tracking-tight",
               isDarkMode ? "text-white" : "text-gray-800"
-            }`}
+            )}
           >
             Order Takeaway Even Faster!
           </h2>
           <p
-            className={`text-lg ${
+            className={clsx(
+              "text-lg leading-relaxed",
               isDarkMode ? "text-white" : "text-gray-600"
-            } leading-relaxed`}
+            )}
           >
             Download the FoodieBite App for quick orders, personalized
             recommendations, and exclusive offers.
@@ -118,75 +376,58 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Additional Features */}
-      <div className="bg-white rounded-xl shadow-lg py-8 px-10 mx-8">
-        <h3 className="text-3xl font-bold text-orange-500 mb-4">
-          More About Us
-        </h3>
-        <p
-          className={`text-gray-600 text-center leading-relaxed mb-6 ${
-            isDarkMode ? "text-white" : ""
-          }`}
-        >
-          Discover how FoodieBite brings the best meals to your doorstep. We aim
-          to satisfy your cravings with a wide variety of dishes, exclusive
-          offers, and personalized services.
-        </p>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8">
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-            <h4 className="text-xl font-bold text-gray-800">Wide Selection</h4>
+      {/* Blog Section */}
+      <div className="bg-gray-100 rounded-xl shadow-lg py-8 px-10 mx-8">
+        <div className="flex flex-col gap-16 min-h-screen py-12">
+          {/* Sample Blog Post 1 */}
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h4 className="text-xl font-bold text-gray-800">
+              The Secret to Perfect Takeaway
+            </h4>
             <p className="text-gray-600 mt-2">
-              Choose from a variety of cuisines and restaurants near you.
+              Discover the best practices for ordering takeaway and making sure
+              it arrives fresh and hot!
             </p>
+            <button
+              onClick={() => handleNavigation("/blog/1")}
+              className="text-orange-500 font-bold mt-4 hover:underline"
+            >
+              Read More
+            </button>
           </div>
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-            <h4 className="text-xl font-bold text-gray-800">Fast Delivery</h4>
-            <p className="text-gray-600 mt-2">
-              Get your food delivered fresh and on time, every time.
+          {/* Promotional Banner */}
+          <div className="bg-orange-500 rounded-lg shadow-lg text-orange-500 text-white py-6 px-8 text-center">
+            <h4 className="text-2xl font-bold mb-4">
+              Get Exclusive Discounts!
+            </h4>
+            <p className="text-lg mb-4">
+              Sign up for our newsletter and get exclusive discounts and
+              promotions.
             </p>
+            <button
+              onClick={() => handleNavigation("/subscribe")}
+              className="bg-white text-orange-800 px-8 py-3 rounded-full shadow-lg hover:bg-orange-500 transition duration-300"
+            >
+              Subscribe Now
+            </button>
           </div>
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-            <h4 className="text-xl font-bold text-gray-800">Exclusive Deals</h4>
-            <p className="text-gray-600 mt-2">
-              Enjoy exclusive offers and discounts only on FoodieBite.
-            </p>
-          </div>
-        </div>
-      </div>
 
-      {/* Privacy Policy, FAQ, About Us, and Help Line Section */}
-      <div className="bg-white rounded-xl shadow-lg py-8 px-10 mx-8 text-center">
-        <h3 className="text-2xl font-bold text-orange-500 mb-4">
-          Learn More About Us
-        </h3>
-        <p className="text-gray-600 mb-6">
-          Explore our FAQs, company story, or reach out for assistance.
-        </p>
-        <div className="flex flex-wrap justify-center gap-6">
-          <button
-            onClick={() => handleNavigation("/faq")}
-            className="text-orange-500 font-bold hover:underline text-lg"
-          >
-            FAQs
-          </button>
-          <button
-            onClick={() => handleNavigation("/about-us")}
-            className="text-orange-500 font-bold hover:underline text-lg"
-          >
-            About Us
-          </button>
-          <button
-            onClick={() => handleNavigation("/privacy-policy")}
-            className="text-orange-500 font-bold hover:underline text-lg"
-          >
-            Privacy Policy
-          </button>
-          <button
-            onClick={() => handleNavigation("/help-line")}
-            className="text-orange-500 font-bold hover:underline text-lg"
-          >
-            Help Line
-          </button>
+          {/* Sample Blog Post 2 */}
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h4 className="text-xl font-bold text-gray-800">
+              How FoodieBite is Changing Food Delivery
+            </h4>
+            <p className="text-gray-600 mt-2">
+              Learn about the innovative features of the FoodieBite app and how
+              we’re transforming the food delivery experience.
+            </p>
+            <button
+              onClick={() => handleNavigation("/blog/2")}
+              className="text-orange-500 font-bold mt-4 hover:underline"
+            >
+              Read More
+            </button>
+          </div>
         </div>
       </div>
     </div>

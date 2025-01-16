@@ -1,7 +1,7 @@
 import { Restaurant } from "@/types";
 import { Link } from "react-router-dom";
 import { AspectRatio } from "./ui/aspect-ratio";
-import { Banknote, Clock, Dot } from "lucide-react";
+import { Banknote, Clock } from "lucide-react";
 
 type Props = {
   restaurant: Restaurant;
@@ -11,36 +11,47 @@ const SearchResultCard = ({ restaurant }: Props) => {
   return (
     <Link
       to={`/detail/${restaurant._id}`}
-      className="grid lg:grid-cols-[2fr_3fr] gap-5 group"
+      className="grid lg:grid-cols-[2fr_3fr] gap-5 group p-4 rounded-lg border hover:shadow-lg transition-shadow duration-300"
     >
+      {/* Image Section */}
       <AspectRatio ratio={16 / 6}>
         <img
           src={restaurant.imageUrl}
+          alt={restaurant.restaurantName}
           className="rounded-md w-full h-full object-cover"
         />
       </AspectRatio>
+
+      {/* Content Section */}
       <div>
-        <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:underline">
+        {/* Restaurant Name */}
+        <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-orange-500 transition-colors">
           {restaurant.restaurantName}
         </h3>
-        <div id="card-content" className="grid md:grid-cols-2 gap-2">
-          <div className="flex flex-row flex-wrap">
-            {restaurant.cuisines.map((item, index) => (
-              <span className="flex">
-                <span>{item}</span>
-                {index < restaurant.cuisines.length - 1 && <Dot />}
-              </span>
-            ))}
+
+        {/* Cuisine Tags */}
+        <div className="flex flex-wrap gap-2 mb-3">
+          {restaurant.cuisines.map((item) => (
+            <span
+              key={item}
+              className="text-sm bg-gray-200 text-gray-700 px-2 py-1 rounded-md"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+
+        {/* Delivery Info */}
+        <div className="flex flex-col gap-2 text-gray-600">
+          <div className="flex items-center gap-2">
+            <Clock className="text-green-600" />
+            <span>{restaurant.estimatedDeliveryTime} mins delivery</span>
           </div>
-          <div className="flex gap-2 flex-col">
-            <div className="flex items-center gap-1 text-green-600">
-              <Clock className="text-green-600" />
-              {restaurant.estimatedDeliveryTime} mins
-            </div>
-            <div className="flex items-center gap-1">
-              <Banknote />
+          <div className="flex items-center gap-2">
+            <Banknote className="text-blue-600" />
+            <span>
               Delivery from £{(restaurant.deliveryPrice / 100).toFixed(2)}
-            </div>
+            </span>
           </div>
         </div>
       </div>

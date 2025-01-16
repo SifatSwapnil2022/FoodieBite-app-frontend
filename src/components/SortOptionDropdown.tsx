@@ -13,15 +13,15 @@ type Props = {
 
 const SORT_OPTIONS = [
   {
-    label: "Best match",
+    label: "Best Match",
     value: "bestMatch",
   },
   {
-    label: "Delivery price",
+    label: "Delivery Price",
     value: "deliveryPrice",
   },
   {
-    label: "Estimated delivery time",
+    label: "Estimated Delivery Time",
     value: "estimatedDeliveryTime",
   },
 ];
@@ -33,16 +33,25 @@ const SortOptionDropdown = ({ onChange, sortOption }: Props) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="cursor-pointer">
-        <Button variant="outline" className="w-full">
-          Sort by: {selectedSortLabel}
+      {/* Trigger Button */}
+      <DropdownMenuTrigger>
+        <Button
+          variant="outline"
+          className="flex items-center gap-2 w-full hover:bg-gray-200 transition-colors"
+        >
+          Sort by: <span className="font-medium">{selectedSortLabel}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+
+      {/* Dropdown Content */}
+      <DropdownMenuContent className="w-48 bg-white border border-gray-200 shadow-md rounded-md">
         {SORT_OPTIONS.map((option) => (
           <DropdownMenuItem
-            className="cursor-pointer"
+            key={option.value}
             onClick={() => onChange(option.value)}
+            className={`px-4 py-2 hover:bg-gray-100 transition-colors ${
+              sortOption === option.value ? "bg-gray-200 font-semibold" : ""
+            }`}
           >
             {option.label}
           </DropdownMenuItem>
