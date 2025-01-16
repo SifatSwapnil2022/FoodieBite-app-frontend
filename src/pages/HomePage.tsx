@@ -430,6 +430,41 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      {/* Privacy Policy, FAQ, About Us, and Help Line Section */}
+      <div className="bg-white rounded-xl shadow-lg py-8 px-10 mx-8 text-center">
+        <h3 className="text-4xl font-bold text-orange-500 mb-4">
+          Learn More About Us
+        </h3>
+        <p className="text-gray-600 mb-6">
+          Explore our FAQs, company story, or reach out for assistance.
+        </p>
+        <div className="flex flex-wrap justify-center gap-6">
+          <button
+            onClick={() => handleNavigation("/faq")}
+            className="text-orange-500 font-bold hover:underline text-lg"
+          >
+            FAQs
+          </button>
+          <button
+            onClick={() => handleNavigation("/about-us")}
+            className="text-orange-500 font-bold hover:underline text-lg"
+          >
+            About Us
+          </button>
+          <button
+            onClick={() => handleNavigation("/privacy-policy")}
+            className="text-orange-500 font-bold hover:underline text-lg"
+          >
+            Privacy Policy
+          </button>
+          <button
+            onClick={() => handleNavigation("/help-line")}
+            className="text-orange-500 font-bold hover:underline text-lg"
+          >
+            Help Line
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

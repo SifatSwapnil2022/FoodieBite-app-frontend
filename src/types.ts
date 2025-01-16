@@ -11,9 +11,11 @@ export type MenuItem = {
   _id: string;
   name: string;
   price: number;
+  image: string;
 };
 
 export type Restaurant = {
+  title: string | undefined;
   _id: string;
   user: string;
   restaurantName: string;
