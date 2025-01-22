@@ -14,7 +14,7 @@ type Props = {
 
 const OrderSummary = ({ restaurant, cartItems, removeFromCart }: Props) => {
   const formatPrice = (priceInPence: number) =>
-    `£${(priceInPence / 100).toFixed(2)}`;
+    `Tk ${(priceInPence / 100).toFixed(2)}`;
 
   const getTotalCost = () => {
     const totalInPence = cartItems.reduce(
