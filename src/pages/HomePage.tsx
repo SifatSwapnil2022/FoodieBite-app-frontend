@@ -17,11 +17,21 @@ import user3 from "../assets/user3.png";
 import dp from "../assets/dp.png";
 import sd from "../assets/sd.jpg";
 import to from "../assets/to.jpg";
+import bk from "../assets/bk.png";
+import ph from "../assets/ph.jpg";
+import bv from "../assets/bv.png";
+import kb from "../assets/kb.jpg";
+import kh from "../assets/kh.jpg";
+import ne from "../assets/ne.jpg";
+
+// Sample Data for Advertisements
 import user4 from "../assets/user4.png";
 import user5 from "../assets/user5.png";
 import user6 from "../assets/user6.png";
 
 // Sample data for offers and advertisements
+
+// Sample Data for Offers
 const offers = [
   {
     id: 1,
@@ -40,6 +50,48 @@ const offers = [
     title: "Free Delivery for First-Time Users",
     description: "New to FoodieBite? Get free delivery on your first order.",
     image: free,
+  },
+  {
+    id: 4,
+    title: "Special Deal: 30% Off on Burgers",
+    description:
+      "Satisfy your cravings with our juicy burgers. Use code: BURGER30",
+    image: bk,
+  },
+  {
+    id: 5,
+    title: "10% Off on Orders Above 100 tk",
+    description: "Get 10% off on orders above $100. Use code: FOODIE10",
+    image: ph,
+  },
+
+  {
+    id: 6,
+    title: "Special Deal: 20% Off on Set-Menu",
+    description: "Indulge in our delicious pizzas. Use code: BengaliVOJ20",
+    image: bv,
+  },
+
+  {
+    id: 7,
+    title: "10% Off on Orders Above 600 tk",
+    description: "Get 10% off on orders above 600tk. Use code: Kachi10",
+    image: kb,
+  },
+
+  {
+    id: 8,
+    title: "Special Deal: 20% Off on Kebabs",
+    description:
+      "Satisfy your cravings with our juicy kebabs. Use code: Kebab20",
+    image: kh,
+  },
+
+  {
+    id: 9,
+    title: "10% Off for valentine's day",
+    description: "Get 10% off on orders above $100. Use code: valentine10",
+    image: ne,
   },
 ];
 
